@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-import { UserService } from '../../api/user.service';
 import { User } from '../../api/user.model';
 
 @Component({
@@ -15,17 +14,10 @@ export class UserPage implements OnInit {
   userId;
   user$: Observable<User>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private userService: UserService
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.user$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        this.userId = params.get('userId');
-        return this.userService.getUser(this.userId);
-      })
-    );
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    this.user$ = this.route.data.pipe(map(data => data.user));
   }
 }

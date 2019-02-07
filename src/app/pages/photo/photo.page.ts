@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-import { PhotoService } from '../../api/photo.service';
 import { Photo } from '../../api/photo.model';
 
 @Component({
@@ -17,23 +16,12 @@ export class PhotoPage implements OnInit {
   photoId;
   photo$: Observable<Photo>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private photoService: PhotoService
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.photo$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        this.userId = params.get('userId');
-        this.albumId = params.get('albumId');
-        this.photoId = params.get('photoId');
-        return this.photoService.getAlbumPhoto(
-          this.userId,
-          this.albumId,
-          this.photoId
-        );
-      })
-    );
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    this.albumId = this.route.snapshot.paramMap.get('albumId');
+    this.photoId = this.route.snapshot.paramMap.get('photoId');
+    this.photo$ = this.route.data.pipe(map(data => data.photo));
   }
 }

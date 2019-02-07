@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AlbumPage } from './album.page';
+import { AlbumResolver } from './album.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: AlbumPage
-  }
+    component: AlbumPage,
+    resolve: { album: AlbumResolver },
+  },
 ];
 
 @NgModule({
@@ -19,8 +21,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  declarations: [AlbumPage]
+  declarations: [AlbumPage],
 })
 export class AlbumPageModule {}

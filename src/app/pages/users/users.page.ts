@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { UserService } from '../../api/user.service';
 import { User } from '../../api/user.model';
 
 @Component({
@@ -12,9 +13,9 @@ import { User } from '../../api/user.model';
 export class UsersPage implements OnInit {
   users$: Observable<User[]>;
 
-  constructor(private userService: UserService) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.users$ = this.userService.getUsers();
+    this.users$ = this.route.data.pipe(map(data => data.users));
   }
 }
