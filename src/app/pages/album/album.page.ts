@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-import { AlbumService } from '../../api/album.service';
 import { Album } from '../../api/album.model';
 
 @Component({
@@ -16,18 +15,11 @@ export class AlbumPage implements OnInit {
   albumId;
   album$: Observable<Album>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private albumService: AlbumService
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.album$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        this.userId = params.get('userId');
-        this.albumId = params.get('albumId');
-        return this.albumService.getUserAlbum(this.userId, this.albumId);
-      })
-    );
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    this.albumId = this.route.snapshot.paramMap.get('albumId');
+    this.album$ = this.route.data.pipe(map(data => data.album));
   }
 }

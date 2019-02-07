@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-import { CommentService } from '../../api/comment.service';
 import { Comment } from '../../api/comment.model';
 
 @Component({
@@ -17,27 +16,12 @@ export class CommentsPage implements OnInit {
   photoId;
   comments$: Observable<Comment[]>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private commentService: CommentService
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.comments$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        this.userId = params.get('userId');
-        this.albumId = params.get('albumId');
-        this.photoId = params.get('photoId');
-        if (this.albumId && this.photoId) {
-          return this.commentService.getPhotoComments(
-            this.userId,
-            this.albumId,
-            this.photoId
-          );
-        } else {
-          return this.commentService.getUserComments(this.userId);
-        }
-      })
-    );
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    this.albumId = this.route.snapshot.paramMap.get('albumId');
+    this.photoId = this.route.snapshot.paramMap.get('photoId');
+    this.comments$ = this.route.data.pipe(map(data => data.comments));
   }
 }

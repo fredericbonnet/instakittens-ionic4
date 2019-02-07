@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CommentsPage } from './comments.page';
+import { CommentsResolver } from './comments.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: CommentsPage
-  }
+    component: CommentsPage,
+    resolve: { comments: CommentsResolver },
+  },
 ];
 
 @NgModule({
@@ -19,8 +21,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  declarations: [CommentsPage]
+  declarations: [CommentsPage],
 })
 export class CommentsPageModule {}

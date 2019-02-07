@@ -6,11 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { UserPage } from './user.page';
+import { UserResolver } from './user.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: UserPage,
+    resolve: { user: UserResolver },
   },
 ];
 

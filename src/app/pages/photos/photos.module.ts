@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { PhotosPage } from './photos.page';
+import { PhotosResolver } from './photos.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: PhotosPage
-  }
+    component: PhotosPage,
+    resolve: { photos: PhotosResolver },
+  },
 ];
 
 @NgModule({
@@ -19,8 +21,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  declarations: [PhotosPage]
+  declarations: [PhotosPage],
 })
 export class PhotosPageModule {}
