@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthBasicInterceptor } from './auth/auth-basic.interceptor';
 import { AuthErrorInterceptor } from './auth/auth-error.interceptor';
 import { AppErrorHandlerService } from './app-error-handler.service';
 
@@ -25,6 +26,7 @@ import { AppErrorHandlerService } from './app-error-handler.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthBasicInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true },
     { provide: ErrorHandler, useClass: AppErrorHandlerService },
   ],
