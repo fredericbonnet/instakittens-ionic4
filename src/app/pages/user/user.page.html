@@ -3,16 +3,24 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="(user$ | async) as user">{{ user.username }}</ion-title>
+    <ion-title *ngIf="(user$ | async) as user" data-testid="user-label">
+      {{ user.username }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="(user$ | async) as user">
-    <ion-item [routerLink]="['/users', userId, 'albums']">
+    <ion-item
+      data-testid="albums-link"
+      [routerLink]="['/users', userId, 'albums']"
+    >
       <ion-label>Albums</ion-label>
     </ion-item>
-    <ion-item [routerLink]="['/users', userId, 'comments']">
+    <ion-item
+      data-testid="comments-link"
+      [routerLink]="['/users', userId, 'comments']"
+    >
       <ion-label>Comments</ion-label>
     </ion-item>
   </ion-list>

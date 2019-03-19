@@ -3,16 +3,21 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="(comment$ | async) as comment">{{
-      comment.message
-    }}</ion-title>
+    <ion-title
+      *ngIf="(comment$ | async) as comment"
+      data-testid="comment-label"
+    >
+      {{ comment.message }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="(comment$ | async) as comment">
     <ion-item>
-      <ion-label text-wrap>{{ comment.message }}</ion-label>
+      <ion-label text-wrap data-testid="comment-message">
+        {{ comment.message }}
+      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
