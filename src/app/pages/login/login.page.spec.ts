@@ -1,10 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Routes } from '@angular/router';
+import { Routes, ActivatedRoute, Router } from '@angular/router';
 
 import { LoginPage } from './login.page';
 import { AuthService } from 'src/app/auth/auth.service';
+import { of, throwError } from 'rxjs';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
 ];
 
 describe('LoginPage', () => {
+  let redirect = '/';
   let component: LoginPage;
   let fixture: ComponentFixture<LoginPage>;
   let authServiceSpy;
@@ -26,6 +28,10 @@ describe('LoginPage', () => {
       imports: [RouterTestingModule.withRoutes(routes)],
       providers: [{ provide: AuthService, useValue: authServiceSpy }],
     }).compileComponents();
+
+    // Build route.
+    const route = TestBed.get(ActivatedRoute);
+    route.snapshot.queryParams = { redirect };
   }));
 
   beforeEach(() => {
@@ -36,5 +42,23 @@ describe('LoginPage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should redirect to URL upon successful authentication', () => {
+    const router = TestBed.get(Router);
+    spyOn(router, 'navigateByUrl').and.stub();
+    authServiceSpy.auth.and.returnValue(of({}));
+    component.signin();
+    expect(router.navigateByUrl).toHaveBeenCalledWith(redirect, {
+      replaceUrl: true,
+    });
+  });
+
+  it('should throw an error upon authentication failure', () => {
+    const router = TestBed.get(Router);
+    spyOn(router, 'navigateByUrl').and.stub();
+    authServiceSpy.auth.and.returnValue(throwError('error'));
+    expect(component.signin).toThrow();
+    expect(router.navigateByUrl).not.toHaveBeenCalled();
   });
 });
