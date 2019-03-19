@@ -3,13 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="(album$ | async) as album">{{ album.title }}</ion-title>
+    <ion-title *ngIf="(album$ | async) as album" data-testid="album-title">
+      {{ album.title }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="(album$ | async) as album">
-    <ion-item [routerLink]="['/users', userId, 'albums', albumId, 'photos']">
+    <ion-item
+      data-testid="photos-link"
+      [routerLink]="['/users', userId, 'albums', albumId, 'photos']"
+    >
       <ion-label>Photos</ion-label>
     </ion-item>
   </ion-list>

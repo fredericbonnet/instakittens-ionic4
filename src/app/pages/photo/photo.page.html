@@ -3,13 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="(photo$ | async) as photo">{{ photo.title }}</ion-title>
+    <ion-title *ngIf="(photo$ | async) as photo" data-testid="photo-title">
+      {{ photo.title }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="(photo$ | async) as photo">
     <ion-item
+      data-testid="comments-link"
       [routerLink]="[
         '/users',
         userId,

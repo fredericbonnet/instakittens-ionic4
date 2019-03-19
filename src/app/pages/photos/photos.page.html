@@ -8,12 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list data-testid="photo-list">
     <ion-item
       *ngFor="let photo of (photos$ | async)"
+      data-testid="photo-link"
       [routerLink]="['/users', userId, 'albums', albumId, 'photos', photo.id]"
     >
-      <ion-label>{{ photo.title }}</ion-label>
+      <ion-label data-testid="photo-title">{{ photo.title }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

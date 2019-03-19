@@ -8,9 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list data-testid="comment-list">
     <ion-item
       *ngFor="let comment of (comments$ | async)"
+      data-testid="comment-link"
       [routerLink]="
         albumId && photoId
           ? [
@@ -26,7 +27,7 @@
           : ['/users', userId, 'comments', comment.id]
       "
     >
-      <ion-label>{{ comment.message }}</ion-label>
+      <ion-label data-testid="comment-message">{{ comment.message }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
