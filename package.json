@@ -21,7 +21,9 @@
     "e2e:watch-no-serve": "nodemon -e js,ts -x npx ng e2e --devServerTarget= --webdriverUpdate=false",
     "cypress:run": "cypress run",
     "cypress:watch": "nodemon -e js,ts -x npm run cypress:run",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "codeceptjs": "codeceptjs run --config codeceptjs/codecept.conf.js",
+    "codeceptjs:watch": "nodemon -e js,ts -x npm run codeceptjs"
   },
   "dependencies": {
     "@angular/common": "^7.2.2",
@@ -52,6 +54,8 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.0",
+    "chai": "^4.2.0",
+    "codeceptjs": "^2.0.7",
     "codelyzer": "~4.5.0",
     "cypress": "^3.1.5",
     "faker": "^4.1.0",
@@ -64,6 +68,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "nodemon": "^1.18.10",
     "protractor": "~5.4.0",
+    "puppeteer": "^1.13.0",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
     "typescript": "~3.1.6"

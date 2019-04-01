@@ -36,3 +36,6 @@ UserInterfaceState.xcuserstate
 # Cypress
 cypress/screenshots
 cypress/videos
+
+# CodeceptJS
+codeceptjs/output
