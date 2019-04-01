@@ -17,7 +17,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "e2e:watch-no-serve": "nodemon -e js,ts -x npx ng e2e --devServerTarget= --webdriverUpdate=false"
   },
   "dependencies": {
     "@angular/common": "^7.2.2",
@@ -57,6 +58,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "nodemon": "^1.18.10",
     "protractor": "~5.4.0",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
