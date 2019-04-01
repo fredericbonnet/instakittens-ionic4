@@ -1,14 +1,21 @@
 import { AppPage } from './app.po';
+import { HomePage } from './home.po';
 
-describe('new App', () => {
+describe('App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should be blank', () => {
+  it('should display the app name', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toContain('The world is your oyster.');
+    expect(page.getTitle()).toBe('Instakittens');
+  });
+
+  it('should redirect to the home page', async () => {
+    page.navigateTo();
+    const homePage = new HomePage();
+    expect(await homePage.isActive()).toEqual(true);
   });
 });
