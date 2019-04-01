@@ -18,7 +18,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e:watch-no-serve": "nodemon -e js,ts -x npx ng e2e --devServerTarget= --webdriverUpdate=false"
+    "e2e:watch-no-serve": "nodemon -e js,ts -x npx ng e2e --devServerTarget= --webdriverUpdate=false",
+    "cypress:run": "cypress run",
+    "cypress:watch": "nodemon -e js,ts -x npm run cypress:run",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@angular/common": "^7.2.2",
@@ -50,6 +53,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.0",
     "codelyzer": "~4.5.0",
+    "cypress": "^3.1.5",
     "faker": "^4.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
