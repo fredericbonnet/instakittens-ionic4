@@ -1,10 +1,10 @@
-import { HomePage } from './home.po';
+import { HomePage } from './pages/home.po';
 
 fixture('Home Page');
 
-const page = new HomePage();
+const homePage = new HomePage();
 
 test('should have a link to Users', async t => {
-  await page.navigateTo();
-  await t.expect(page.getUsersLink().exists).ok();
+  await homePage.navigateTo();
+  await t.expect(homePage.getUsersLink().exists).ok();
 });

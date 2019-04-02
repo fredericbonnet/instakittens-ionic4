@@ -4,7 +4,7 @@ import { Selector, t } from 'testcafe';
  * App page object.
  */
 export class AppPage {
-  navigateTo() {
+  async navigateTo() {
     return t.navigateTo(global.BASE_URL + '/');
   }
 

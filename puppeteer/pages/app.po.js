@@ -2,11 +2,11 @@
  * App page object.
  */
 class AppPage {
-  navigateTo() {
+  async navigateTo() {
     return page.goto(global.BASE_URL + '/');
   }
 
-  getTitle() {
+  async getTitle() {
     return page.$eval('app-root ion-title', element => element.textContent);
   }
 }

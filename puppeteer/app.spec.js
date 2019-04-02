@@ -1,21 +1,17 @@
-const { AppPage } = require('./app.po');
-const { HomePage } = require('./home.po');
+const { AppPage } = require('./pages/app.po');
+const { HomePage } = require('./pages/home.po');
 
 describe('App', () => {
-  let page;
-
-  beforeEach(() => {
-    page = new AppPage();
-  });
+  const appPage = new AppPage();
+  const homePage = new HomePage();
 
   it('should display the app name', async () => {
-    await page.navigateTo();
-    expect(await page.getTitle()).to.eql('Instakittens');
+    await appPage.navigateTo();
+    expect(await appPage.getTitle()).to.eql('Instakittens');
   });
 
   it('should redirect to the home page', async () => {
-    await page.navigateTo();
-    const homePage = new HomePage();
+    await appPage.navigateTo();
     expect(await homePage.isActive()).to.be.true;
   });
 });

@@ -1,16 +1,12 @@
 /// <reference types="Cypress" />
 
-import { HomePage } from '../support/home.po';
+import { HomePage } from '../support/pages/home.po';
 
 describe('Home Page', () => {
-  let page;
-
-  beforeEach(() => {
-    page = new HomePage();
-  });
+  const homePage = new HomePage();
 
   it('should have a link to Users', () => {
-    page.navigateTo();
-    page.getUsersLink().should('exist');
+    homePage.navigateTo();
+    homePage.getUsersLink().should('exist');
   });
 });
