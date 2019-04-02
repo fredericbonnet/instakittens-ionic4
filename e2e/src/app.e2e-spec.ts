@@ -1,21 +1,17 @@
-import { AppPage } from './app.po';
-import { HomePage } from './home.po';
+import { AppPage } from './pages/app.po';
+import { HomePage } from './pages/home.po';
 
 describe('App', () => {
-  let page: AppPage;
-
-  beforeEach(() => {
-    page = new AppPage();
-  });
+  const appPage: AppPage = new AppPage();
+  const homePage: HomePage = new HomePage();
 
   it('should display the app name', () => {
-    page.navigateTo();
-    expect(page.getTitle()).toBe('Instakittens');
+    appPage.navigateTo();
+    expect(appPage.getTitle()).toBe('Instakittens');
   });
 
   it('should redirect to the home page', async () => {
-    page.navigateTo();
-    const homePage = new HomePage();
+    appPage.navigateTo();
     expect(await homePage.isActive()).toEqual(true);
   });
 });

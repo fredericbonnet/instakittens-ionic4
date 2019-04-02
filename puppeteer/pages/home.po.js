@@ -2,7 +2,7 @@
  * Home page object.
  */
 class HomePage {
-  navigateTo() {
+  async navigateTo() {
     return page.goto(global.BASE_URL + '/home');
   }
 
@@ -10,7 +10,7 @@ class HomePage {
     return (await page.evaluate(() => window.location.pathname)) === '/home';
   }
 
-  getUsersLink() {
+  async getUsersLink() {
     return page.$('[data-testid="users-link"]');
   }
 }

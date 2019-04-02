@@ -1,10 +1,10 @@
-import { Selector, ClientFunction, t } from 'testcafe';
+import { Selector, t } from 'testcafe';
 
 /**
  * Home page object.
  */
 export class HomePage {
-  navigateTo() {
+  async navigateTo() {
     return t.navigateTo(global.BASE_URL + '/home');
   }
 
