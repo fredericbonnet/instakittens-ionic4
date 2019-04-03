@@ -12,6 +12,7 @@ exports.config = {
     I: './steps_file.js',
     appPage: './pages/app.po.js',
     homePage: './pages/home.po.js',
+    loginPage: './pages/login.po.js',
   },
   require: glob.sync(__dirname + '/support/**/*.js'),
   bootstrap: null,
