@@ -13,14 +13,26 @@ export class LoginPage {
       return location.pathname === '/login';
     });
   }
+  waitActive() {
+    return cy.location('pathname').should('eq', '/login');
+  }
+  waitInactive() {
+    return cy.location('pathname').should('not.eq', '/login');
+  }
 
   getUsernameInput() {
-    return cy.get('[data-testid="username-input"]');
+    return cy.get('[data-testid="username-input"] input');
   }
   getPasswordInput() {
-    return cy.get('[data-testid="password-input"]');
+    return cy.get('[data-testid="password-input"] input');
   }
   getSigninButton() {
     return cy.get('[data-testid="signin-button"]');
+  }
+
+  login(username, password) {
+    this.getUsernameInput().type(username);
+    this.getPasswordInput().type(password);
+    this.getSigninButton().click();
   }
 }
