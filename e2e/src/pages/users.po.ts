@@ -11,4 +11,10 @@ export class UsersPage {
   async isActive() {
     return (await browser.getCurrentUrl()).endsWith('/users');
   }
+  waitActive() {
+    return browser.wait(async () => await this.isActive(), 5000);
+  }
+  waitInactive() {
+    return browser.wait(async () => !(await this.isActive()), 5000);
+  }
 }

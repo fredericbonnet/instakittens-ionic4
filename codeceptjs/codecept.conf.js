@@ -1,5 +1,7 @@
 const glob = require('glob');
 
+const { users } = require('./support/roles');
+
 exports.config = {
   tests: './*_test.js',
   output: './output',
@@ -14,6 +16,13 @@ exports.config = {
     homePage: './pages/home.po.js',
     loginPage: './pages/login.po.js',
     usersPage: './pages/users.po.js',
+  },
+  plugins: {
+    autoLogin: {
+      enabled: true,
+      inject: 'useRole',
+      users,
+    },
   },
   require: glob.sync(__dirname + '/support/**/*.js'),
   bootstrap: null,

@@ -9,6 +9,12 @@ class UsersPage {
   async isActive() {
     return (await page.evaluate(() => window.location.pathname)) === '/users';
   }
+  async waitActive() {
+    return page.waitForSelector('app-users ion-content', { visible: true });
+  }
+  async waitInactive() {
+    return page.waitForSelector('app-users ion-content', { hidden: true });
+  }
 }
 
 module.exports = { UsersPage };

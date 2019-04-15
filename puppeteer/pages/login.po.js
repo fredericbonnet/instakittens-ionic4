@@ -11,11 +11,9 @@ class LoginPage {
   }
   async waitActive() {
     return page.waitForSelector('app-login ion-content', { visible: true });
-    // return page.waitForFunction(() => window.location.pathname === '/login');
   }
   async waitInactive() {
     return page.waitForSelector('app-login ion-content', { hidden: true });
-    // return page.waitForFunction(() => window.location.pathname !== '/login');
   }
 
   async getUsernameInput() {

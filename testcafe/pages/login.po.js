@@ -4,6 +4,9 @@ import { Selector, t } from 'testcafe';
  * Login page object.
  */
 export class LoginPage {
+  url() {
+    return global.BASE_URL + '/login';
+  }
   async navigateTo() {
     return t.navigateTo(global.BASE_URL + '/login');
   }

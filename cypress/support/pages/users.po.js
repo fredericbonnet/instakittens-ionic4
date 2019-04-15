@@ -13,4 +13,10 @@ export class UsersPage {
       return location.pathname === '/users';
     });
   }
+  waitActive() {
+    return cy.location('pathname').should('eq', '/users');
+  }
+  waitInactive() {
+    return cy.location('pathname').should('not.eq', '/users');
+  }
 }

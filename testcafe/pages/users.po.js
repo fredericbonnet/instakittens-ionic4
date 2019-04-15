@@ -11,4 +11,10 @@ export class UsersPage {
   async isActive() {
     return (await t.eval(() => window.location.pathname)) === '/users';
   }
+  async waitActive() {
+    return t.expect(t.eval(() => window.location.pathname)).eql('/users');
+  }
+  async waitInactive() {
+    return t.expect(t.eval(() => window.location.pathname)).notEql('/users');
+  }
 }
