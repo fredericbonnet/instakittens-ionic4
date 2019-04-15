@@ -1,5 +1,5 @@
 
-type ICodeceptCallback = (i: CodeceptJS.I, appPage:CodeceptJS.appPage) => void;
+type ICodeceptCallback = (i: CodeceptJS.I, appPage:CodeceptJS.appPage, homePage:CodeceptJS.homePage, loginPage:CodeceptJS.loginPage, usersPage:CodeceptJS.usersPage, useRole:CodeceptJS.useRole) => void;
 
 declare class FeatureConfig {
   retry(times:number): FeatureConfig
@@ -278,12 +278,48 @@ declare namespace CodeceptJS {
     waitForDetached(locator: string, sec: number) : void,
     debug(msg: string) : void,
     debugSection(section: string, msg: string) : void,
+    login(username: string, password: string) : void,
     say: () => any; 
     retryStep(opts: string) : void,
 
   }
 
   export interface appPage {
+    navigateTo() : void,
+    getTitle() : void,
+
+  }
+
+
+  export interface homePage {
+    navigateTo() : void,
+    isActive() : void,
+    getUsersLink() : void,
+
+  }
+
+
+  export interface loginPage {
+    navigateTo() : void,
+    isActive() : void,
+    waitActive() : void,
+    waitInactive() : void,
+    getUsernameInput() : void,
+    getPasswordInput() : void,
+    getSigninButton() : void,
+    login(username: string, password: string) : void,
+
+  }
+
+
+  export interface usersPage {
+    navigateTo() : void,
+    isActive() : void,
+
+  }
+
+
+  export interface useRole {
 
   }
 
