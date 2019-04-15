@@ -4,20 +4,20 @@ import { useRole } from './support/roles';
 describe('User Roles', () => {
   const usersPage: UsersPage = new UsersPage();
 
-  it('admin', () => {
-    useRole('admin');
+  it('admin', async () => {
+    await useRole('admin');
     usersPage.navigateTo();
     usersPage.waitActive();
   });
 
-  it('user', () => {
-    useRole('user');
+  it('user', async () => {
+    await useRole('user');
     usersPage.navigateTo();
     usersPage.waitActive();
   });
 
-  it('admin 2', () => {
-    useRole('admin');
+  it('admin 2', async () => {
+    await useRole('admin');
     usersPage.navigateTo();
     usersPage.waitActive();
   });

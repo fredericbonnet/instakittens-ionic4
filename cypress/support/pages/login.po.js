@@ -33,6 +33,6 @@ export class LoginPage {
   login(username, password) {
     this.getUsernameInput().type(username);
     this.getPasswordInput().type(password);
-    this.getSigninButton().click();
+    return this.getSigninButton().click();
   }
 }

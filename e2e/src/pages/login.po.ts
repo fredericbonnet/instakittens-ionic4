@@ -28,9 +28,9 @@ export class LoginPage {
     return element(by.css('[data-testid="signin-button"]'));
   }
 
-  login(username, password) {
+  async login(username, password) {
     this.getUsernameInput().sendKeys(username);
     this.getPasswordInput().sendKeys(password);
-    this.getSigninButton().click();
+    return this.getSigninButton().click();
   }
 }
