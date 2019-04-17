@@ -1,5 +1,5 @@
 --timeout 5000
 --file puppeteer/support/globals.js
 --file puppeteer/support/assertions.js
---file puppeteer/support/puppeteer.js
+--file puppeteer/support/puppeteer-mocha.js
 puppeteer/**/*.spec.js

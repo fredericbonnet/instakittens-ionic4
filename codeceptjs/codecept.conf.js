@@ -17,6 +17,13 @@ exports.config = {
     loginPage: './pages/login.po.js',
     usersPage: './pages/users.po.js',
   },
+  gherkin: {
+    features: './features/*.feature',
+    steps: [
+      './step_definitions/steps.js',
+      ...glob.sync('./step_definitions/**/*.steps.js', { cwd: __dirname }),
+    ],
+  },
   plugins: {
     autoLogin: {
       enabled: true,
