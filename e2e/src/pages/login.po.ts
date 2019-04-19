@@ -4,20 +4,23 @@ import { browser, by, element } from 'protractor';
  * Login page object.
  */
 export class LoginPage {
-  navigateTo() {
+  async navigateTo() {
     return browser.get('/login');
   }
 
   async isActive() {
     return new URL(await browser.getCurrentUrl()).pathname === '/login';
   }
-  waitActive() {
+  async waitActive() {
     return browser.wait(async () => await this.isActive(), 5000);
   }
-  waitInactive() {
+  async waitInactive() {
     return browser.wait(async () => !(await this.isActive()), 5000);
   }
 
+  getLoginForm() {
+    return element(by.css('[data-testid="login-form"]'));
+  }
   getUsernameInput() {
     return element(by.css('[data-testid="username-input"] input'));
   }

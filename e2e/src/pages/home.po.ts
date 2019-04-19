@@ -4,7 +4,7 @@ import { browser, by, element } from 'protractor';
  * Home page object.
  */
 export class HomePage {
-  navigateTo() {
+  async navigateTo() {
     return browser.get('/home');
   }
 

@@ -4,17 +4,17 @@ import { browser } from 'protractor';
  * Users page object.
  */
 export class UsersPage {
-  navigateTo() {
+  async navigateTo() {
     return browser.get('/users');
   }
 
   async isActive() {
     return (await browser.getCurrentUrl()).endsWith('/users');
   }
-  waitActive() {
+  async waitActive() {
     return browser.wait(async () => await this.isActive(), 5000);
   }
-  waitInactive() {
+  async waitInactive() {
     return browser.wait(async () => !(await this.isActive()), 5000);
   }
 }

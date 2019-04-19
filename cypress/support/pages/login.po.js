@@ -20,6 +20,9 @@ export class LoginPage {
     return cy.location('pathname').should('not.eq', '/login');
   }
 
+  getLoginForm() {
+    return cy.get('[data-testid="login-form"]');
+  }
   getUsernameInput() {
     return cy.get('[data-testid="username-input"] input');
   }

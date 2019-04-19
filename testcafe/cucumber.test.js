@@ -13,6 +13,8 @@ import { testcafeCucumberRunner } from './testcafe-cucumber-runner';
 /** Cucumber CLI arguments. */
 const cucumberArgs = [
   '--require',
+  'support/world.js',
+  '--require',
   'step_definitions/**/*.steps.js',
   '--format',
   'summary',

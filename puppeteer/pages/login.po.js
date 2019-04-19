@@ -16,6 +16,9 @@ class LoginPage {
     return page.waitForSelector('app-login ion-content', { hidden: true });
   }
 
+  async getLoginForm() {
+    return page.$('[data-testid="login-form"]');
+  }
   async getUsernameInput() {
     return page.$('[data-testid="username-input"] input');
   }

@@ -1,30 +1,5 @@
 const { Given, When, Then } = require('cucumber');
 
-Given('I go to the Login Page', function() {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
-Then('I should see the Login Form', function() {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
-Then('the Login Form should have a Username Input', function() {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
-Then('the Login Form should have a Password Input', function() {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
-Then('the Login Form should have a Sign In Button', function() {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
 When('I click on the Username Input of the Login Form', function() {
   // Write code here that turns the phrase above into concrete actions
   return 'pending';

@@ -18,6 +18,9 @@ module.exports = {
     I.waitForFunction(() => window.location.pathname !== '/login');
   },
 
+  getLoginForm() {
+    return '[data-testid="login-form"]';
+  },
   getUsernameInput() {
     return '[data-testid="username-input"] input';
   },
