@@ -16,7 +16,10 @@ const roles = {};
  * @param role Account role (e.g. admin, user)
  */
 Cypress.Commands.add('useRole', role => {
-  if (roles[role]) {
+  if (role === 'anonymous') {
+    // Clear auth data.
+    localStorage.removeItem(AUTHDATA_KEY);
+  } else if (roles[role]) {
     // Restore auth data.
     localStorage.setItem(AUTHDATA_KEY, roles[role]);
   } else {

@@ -171,6 +171,8 @@ declare namespace CodeceptJS {
     clickLink(locator: string, context?: ILocator) : void,
     clickLink(locator: ILocator, context?: string) : void,
     clickLink(locator: string, context?: string) : void,
+    downloadFile(locator: ILocator, customName: string) : void,
+    downloadFile(locator: string, customName: string) : void,
     doubleClick(locator: ILocator, context?: ILocator) : void,
     doubleClick(locator: string, context?: ILocator) : void,
     doubleClick(locator: ILocator, context?: string) : void,
@@ -183,6 +185,10 @@ declare namespace CodeceptJS {
     checkOption(field: string, context?: ILocator) : void,
     checkOption(field: ILocator, context?: string) : void,
     checkOption(field: string, context?: string) : void,
+    uncheckOption(field: ILocator, context?: ILocator) : void,
+    uncheckOption(field: string, context?: ILocator) : void,
+    uncheckOption(field: ILocator, context?: string) : void,
+    uncheckOption(field: string, context?: string) : void,
     seeCheckboxIsChecked(field: ILocator) : void,
     seeCheckboxIsChecked(field: string) : void,
     dontSeeCheckboxIsChecked(field: ILocator) : void,
@@ -278,6 +284,7 @@ declare namespace CodeceptJS {
     waitForDetached(locator: string, sec: number) : void,
     debug(msg: string) : void,
     debugSection(section: string, msg: string) : void,
+    getWorld() : void,
     login(username: string, password: string) : void,
     say: () => any; 
     retryStep(opts: string) : void,
@@ -287,6 +294,7 @@ declare namespace CodeceptJS {
   export interface appPage {
     navigateTo() : void,
     getTitle() : void,
+    getErrorMessage() : void,
 
   }
 
@@ -304,6 +312,7 @@ declare namespace CodeceptJS {
     isActive() : void,
     waitActive() : void,
     waitInactive() : void,
+    getLoginForm() : void,
     getUsernameInput() : void,
     getPasswordInput() : void,
     getSigninButton() : void,
@@ -315,6 +324,8 @@ declare namespace CodeceptJS {
   export interface usersPage {
     navigateTo() : void,
     isActive() : void,
+    waitActive() : void,
+    waitInactive() : void,
 
   }
 

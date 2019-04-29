@@ -22,3 +22,9 @@ export const adminRole = newRole('admin');
 
 /** User role */
 export const userRole = newRole('user');
+
+/** Unknown role */
+export const unknownRole = newRole('unknown');
+
+/** Anonymous role */
+export const anonymousRole = Role.anonymous();

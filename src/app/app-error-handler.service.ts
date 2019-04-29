@@ -33,6 +33,7 @@ export class AppErrorHandlerService implements ErrorHandler {
       const message =
         (error.rejection ? error.rejection.message : error.message) || error;
       const toast = await this.toastController.create({
+        cssClass: 'error-message',
         message,
         duration: 2000 /* ms */,
         color: 'danger',

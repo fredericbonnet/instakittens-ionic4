@@ -18,7 +18,6 @@ const cucumberArgs = [
   'step_definitions/**/*.steps.js',
   '--format',
   'summary',
-  // '--exit',
 ];
 
 // Iterate over scenarios and group them by feature file.

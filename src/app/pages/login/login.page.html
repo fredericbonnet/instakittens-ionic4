@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form data-testid="login-form">
+  <form #loginForm data-testid="login-form">
     <ion-list>
       <ion-item>
         <ion-input
@@ -13,6 +13,7 @@
           [(ngModel)]="username"
           name="username"
           placeholder="Username"
+          required
         ></ion-input>
       </ion-item>
       <ion-item>
@@ -22,10 +23,15 @@
           name="password"
           type="password"
           placeholder="Password"
+          required
         ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button data-testid="signin-button" (click)="signin()">
+    <ion-button
+      data-testid="signin-button"
+      (click)="signin()"
+      [disabled]="!loginForm.checkValidity()"
+    >
       Sign in
     </ion-button>
   </form>
