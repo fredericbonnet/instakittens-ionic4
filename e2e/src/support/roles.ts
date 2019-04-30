@@ -17,7 +17,14 @@ const roles = {};
  * @param role Account role (e.g. admin, user)
  */
 export async function useRole(role) {
-  if (roles[role]) {
+  if (role === 'anonymous') {
+    // Clear auth data.
+    await browser.get('/');
+    await browser.executeScript(
+      'localStorage.removeItem(arguments[0])',
+      AUTHDATA_KEY
+    );
+  } else if (roles[role]) {
     // Restore auth data.
     await browser.get('/');
     await browser.executeScript(

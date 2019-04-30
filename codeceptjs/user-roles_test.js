@@ -19,3 +19,15 @@ Scenario('admin 2', (useRole, usersPage) => {
   usersPage.navigateTo();
   usersPage.waitActive();
 });
+
+Scenario('unknown', (useRole, usersPage, loginPage) => {
+  useRole('unknown');
+  usersPage.navigateTo();
+  loginPage.waitActive();
+});
+
+Scenario('anonymous', (useRole, usersPage, loginPage) => {
+  useRole('anonymous');
+  usersPage.navigateTo();
+  loginPage.waitActive();
+});
