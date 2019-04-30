@@ -9,6 +9,9 @@ exports.config = {
     Puppeteer: {
       url: 'http://localhost:4200',
     },
+    World: {
+      require: './world_helper.js',
+    },
   },
   include: {
     I: './steps_file.js',

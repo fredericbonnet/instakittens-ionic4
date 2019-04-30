@@ -17,16 +17,19 @@ export class LoginPage {
   }
 
   async isActive() {
-    return (await this.t.eval(() => window.location.pathname)) === '/login';
+    return (
+      (await this.t.eval(() => window.location.pathname, this.options)) ===
+      '/login'
+    );
   }
   async waitActive() {
     return this.t
-      .expect(this.t.eval(() => window.location.pathname))
+      .expect(this.t.eval(() => window.location.pathname, this.options))
       .eql('/login');
   }
   async waitInactive() {
     return this.t
-      .expect(this.t.eval(() => window.location.pathname))
+      .expect(this.t.eval(() => window.location.pathname, this.options))
       .notEql('/login');
   }
 
