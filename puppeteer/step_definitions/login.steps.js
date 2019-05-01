@@ -9,6 +9,10 @@ Given('I go to the Login Page', async function() {
   await loginPage.navigateTo();
 });
 
+Then('I should be redirected to the Login Page', async function() {
+  await loginPage.waitActive();
+});
+
 Then('I should leave the Login Page', async function() {
   await loginPage.waitInactive();
 });

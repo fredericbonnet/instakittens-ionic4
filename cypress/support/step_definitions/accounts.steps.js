@@ -17,3 +17,16 @@ Given('I am an administrator', () => {
     world.role = 'admin';
   });
 });
+
+Given('I am not identified', () => {
+  cy.getWorld().then(world => {
+    delete world.role;
+    cy.useRole('anonymous');
+  });
+});
+
+Given('I am identified', () => {
+  cy.getWorld().then(world => {
+    cy.useRole(world.role);
+  });
+});

@@ -328,6 +328,7 @@ declare namespace CodeceptJS {
     isActive() : void,
     waitActive() : void,
     waitInactive() : void,
+    getUserList() : void,
 
   }
 

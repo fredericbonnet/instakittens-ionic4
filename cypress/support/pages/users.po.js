@@ -19,4 +19,8 @@ export class UsersPage {
   waitInactive() {
     return cy.location('pathname').should('not.eq', '/users');
   }
+
+  getUserList() {
+    return cy.get('[data-testid="user-list"]');
+  }
 }

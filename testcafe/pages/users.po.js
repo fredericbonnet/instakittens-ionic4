@@ -1,20 +1,35 @@
-import { t } from 'testcafe';
+import { Selector, t } from 'testcafe';
 
 /**
  * Users page object.
  */
 export class UsersPage {
+  constructor(boundTestRun) {
+    this.t = boundTestRun || t;
+    this.options = { boundTestRun };
+  }
   async navigateTo() {
-    return t.navigateTo(global.BASE_URL + '/users');
+    return this.t.navigateTo(global.BASE_URL + '/users');
   }
 
   async isActive() {
-    return (await t.eval(() => window.location.pathname)) === '/users';
+    return (
+      (await this.t.eval(() => window.location.pathname), this.options) ===
+      '/users'
+    );
   }
   async waitActive() {
-    return t.expect(t.eval(() => window.location.pathname)).eql('/users');
+    return this.t
+      .expect(this.t.eval(() => window.location.pathname), this.options)
+      .eql('/users');
   }
   async waitInactive() {
-    return t.expect(t.eval(() => window.location.pathname)).notEql('/users');
+    return this.t
+      .expect(this.t.eval(() => window.location.pathname), this.options)
+      .notEql('/users');
+  }
+
+  getUserList() {
+    return Selector('[data-testid="user-list"]').with(this.options);
   }
 }
