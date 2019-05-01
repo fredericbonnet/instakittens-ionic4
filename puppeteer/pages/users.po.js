@@ -15,6 +15,10 @@ class UsersPage {
   async waitInactive() {
     return page.waitForSelector('app-users ion-content', { hidden: true });
   }
+
+  async getUserList() {
+    return page.$('[data-testid="user-list"]');
+  }
 }
 
 module.exports = { UsersPage };

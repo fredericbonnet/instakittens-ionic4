@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, by, element } from 'protractor';
 
 /**
  * Users page object.
@@ -16,5 +16,9 @@ export class UsersPage {
   }
   async waitInactive() {
     return browser.wait(async () => !(await this.isActive()), 5000);
+  }
+
+  getUserList() {
+    return element(by.css('[data-testid="user-list"]'));
   }
 }

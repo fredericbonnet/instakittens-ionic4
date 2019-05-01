@@ -28,3 +28,11 @@ export const unknownRole = newRole('unknown');
 
 /** Anonymous role */
 export const anonymousRole = Role.anonymous();
+
+/** Roles by identifier */
+export const roles = {
+  admin: adminRole,
+  user: userRole,
+  unknown: unknownRole,
+  anonymous: anonymousRole,
+};

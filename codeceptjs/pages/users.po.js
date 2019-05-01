@@ -17,4 +17,8 @@ module.exports = {
   waitInactive() {
     I.waitForFunction(() => window.location.pathname !== '/users');
   },
+
+  getUserList() {
+    return '[data-testid="user-list"]';
+  },
 };

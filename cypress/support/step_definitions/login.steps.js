@@ -8,6 +8,10 @@ Given('I go to the Login Page', () => {
   loginPage.navigateTo();
 });
 
+Then('I should be redirected to the Login Page', () => {
+  loginPage.waitActive();
+});
+
 Then('I should leave the Login Page', () => {
   loginPage.waitInactive();
 });
