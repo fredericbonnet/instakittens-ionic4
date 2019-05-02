@@ -1,0 +1,27 @@
+{
+  "src_folders": ["nightwatch"],
+
+  "test_runner": {
+    "type": "mocha"
+  },
+
+  "webdriver": {
+    "start_process": true,
+    "port": 9515
+  },
+
+  "page_objects_path": "nightwatch/pages",
+
+  "test_settings": {
+    "default": {
+      "launch_url": "http://localhost:4200",
+      "filter": "*.spec.js",
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "chromeOptions": {
+          "args": ["--no-sandbox"]
+        }
+      }
+    }
+  }
+}

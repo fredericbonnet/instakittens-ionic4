@@ -32,7 +32,9 @@
     "puppeteer": "mocha --opts puppeteer/mocha.opts --exit",
     "puppeteer:watch": "mocha --opts puppeteer/mocha.opts -w",
     "cucumber": "cd puppeteer && cucumber-js",
-    "cucumber:watch": "nodemon -e js,feature -x npm run cucumber"
+    "cucumber:watch": "nodemon -e js,feature -x npm run cucumber",
+    "nightwatch": "nightwatch",
+    "nightwatch:watch": "nodemon -e js,ts,feature -x npm run nightwatch"
   },
   "dependencies": {
     "@angular/common": "^7.2.2",
@@ -64,6 +66,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.0",
     "chai": "^4.2.0",
+    "chromedriver": "^74.0.0",
     "codeceptjs": "^2.1.0",
     "codelyzer": "~4.5.0",
     "cucumber": "^5.1.0",
@@ -78,6 +81,7 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "mocha": "^6.0.2",
+    "nightwatch": "^1.1.11",
     "nodemon": "^1.18.10",
     "protractor": "~5.4.0",
     "protractor-cucumber-framework": "^6.1.1",
