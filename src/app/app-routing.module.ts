@@ -3,47 +3,47 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
+  { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) },
   {
     path: 'users',
-    loadChildren: './pages/users/users.module#UsersPageModule',
+    loadChildren: () => import('./pages/users/users.module').then(m => m.UsersPageModule),
   },
   {
     path: 'users/:userId',
-    loadChildren: './pages/user/user.module#UserPageModule',
+    loadChildren: () => import('./pages/user/user.module').then(m => m.UserPageModule),
   },
   {
     path: 'users/:userId/albums',
-    loadChildren: './pages/albums/albums.module#AlbumsPageModule',
+    loadChildren: () => import('./pages/albums/albums.module').then(m => m.AlbumsPageModule),
   },
   {
     path: 'users/:userId/albums/:albumId',
-    loadChildren: './pages/album/album.module#AlbumPageModule',
+    loadChildren: () => import('./pages/album/album.module').then(m => m.AlbumPageModule),
   },
   {
     path: 'users/:userId/albums/:albumId/photos',
-    loadChildren: './pages/photos/photos.module#PhotosPageModule',
+    loadChildren: () => import('./pages/photos/photos.module').then(m => m.PhotosPageModule),
   },
   {
     path: 'users/:userId/albums/:albumId/photos/:photoId',
-    loadChildren: './pages/photo/photo.module#PhotoPageModule',
+    loadChildren: () => import('./pages/photo/photo.module').then(m => m.PhotoPageModule),
   },
   {
     path: 'users/:userId/albums/:albumId/photos/:photoId/comments',
-    loadChildren: './pages/comments/comments.module#CommentsPageModule',
+    loadChildren: () => import('./pages/comments/comments.module').then(m => m.CommentsPageModule),
   },
   {
     path: 'users/:userId/albums/:albumId/photos/:photoId/comments/:commentId',
-    loadChildren: './pages/comment/comment.module#CommentPageModule',
+    loadChildren: () => import('./pages/comment/comment.module').then(m => m.CommentPageModule),
   },
   {
     path: 'users/:userId/comments',
-    loadChildren: './pages/comments/comments.module#CommentsPageModule',
+    loadChildren: () => import('./pages/comments/comments.module').then(m => m.CommentsPageModule),
   },
   {
     path: 'users/:userId/comments/:commentId',
-    loadChildren: './pages/comment/comment.module#CommentPageModule',
+    loadChildren: () => import('./pages/comment/comment.module').then(m => m.CommentPageModule),
   },
 ];
 
