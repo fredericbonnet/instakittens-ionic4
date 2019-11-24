@@ -21,12 +21,6 @@ Start the development server on port 4200:
 npm run start
 ```
 
-Start the production server on port 4201:
-
-```sh
-npm run start:prod
-```
-
 ### Unit tests
 
 Run Karma/Jasmine unit tests in watch mode:
@@ -110,8 +104,6 @@ npm run cypress:open
 ```
 
 #### TestCafé
-
-TestCafé tests need a running production server on port 4201. For some reason, Ionic 4 in development mode doesn't play nice with the TestCafé Hammerhead proxy.
 
 Run TestCafé tests & scenarios once:
 
