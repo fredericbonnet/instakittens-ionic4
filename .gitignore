@@ -33,6 +33,9 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
+# Cucumber
+@rerun.txt
+
 # Cypress
 cypress/screenshots
 cypress/videos

@@ -31,7 +31,7 @@
     "puppeteer": "mocha --opts puppeteer/mocha.opts --exit",
     "puppeteer:watch": "mocha --opts puppeteer/mocha.opts -w",
     "cucumber": "cd puppeteer && cucumber-js",
-    "cucumber:watch": "nodemon -e js,feature -x npm run cucumber"
+    "cucumber:watch": "nodemon -e js,feature -x npm run cucumber -- -- --profile watch"
   },
   "dependencies": {
     "@angular/common": "^8.2.14",
