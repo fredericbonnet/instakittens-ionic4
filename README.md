@@ -87,6 +87,34 @@ Run Puppeteer Cucumber scenarios in watch mode:
 npm run cucumber:watch
 ```
 
+#### Playwright
+
+Playwright tests need a running development server on port 4200.
+
+Run Playwright tests once:
+
+```sh
+npm run playwright
+```
+
+Run Playwright tests in watch mode:
+
+```sh
+npm run playwright:watch
+```
+
+Run Playwright Cucumber scenarios once:
+
+```sh
+npm run cucumber-playwright
+```
+
+Run Playwright Cucumber scenarios in watch mode:
+
+```sh
+npm run cucumber-playwright:watch
+```
+
 #### Cypress
 
 Cypress tests need a running development server on port 4200.
