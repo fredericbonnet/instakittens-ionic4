@@ -1,0 +1,5 @@
+--timeout 5000
+--file playwright/support/globals.js
+--file playwright/support/assertions.js
+--file playwright/support/playwright-mocha.js
+playwright/**/*.spec.js

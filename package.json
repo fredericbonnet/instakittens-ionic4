@@ -31,7 +31,11 @@
     "puppeteer": "mocha --opts puppeteer/mocha.opts --exit",
     "puppeteer:watch": "mocha --opts puppeteer/mocha.opts -w",
     "cucumber": "cd puppeteer && cucumber-js",
-    "cucumber:watch": "nodemon -e js,feature -x npm run cucumber -- -- --profile watch"
+    "cucumber:watch": "nodemon -e js,feature -x npm run cucumber -- -- --profile watch",
+    "playwright": "mocha --opts playwright/mocha.opts --exit",
+    "playwright:watch": "mocha --opts playwright/mocha.opts -w",
+    "cucumber-playwright": "cd playwright && cucumber-js",
+    "cucumber-playwright:watch": "nodemon -e js,feature -x npm run cucumber-playwright -- -- --profile watch"
   },
   "dependencies": {
     "@angular/common": "^8.2.14",
@@ -77,6 +81,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "mocha": "^6.2.2",
     "nodemon": "^2.0.1",
+    "playwright": "^0.9.21",
     "protractor": "~5.4.2",
     "protractor-cucumber-framework": "^6.2.0",
     "puppeteer": "^1.20.0",
